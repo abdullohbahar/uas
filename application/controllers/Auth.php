@@ -66,9 +66,7 @@ class Auth extends CI_Controller
 
     public function signup()
     {
-        if ($this->session->userdata('username')) {
-            redirect('user');
-        }
+
 
         // Validation
         $this->form_validation->set_rules('username', 'Username', 'required', ['required' => 'Username Belum diis!!']);
@@ -105,6 +103,7 @@ class Auth extends CI_Controller
 
     public function loginAdmin()
     {
+
 
         $this->form_validation->set_rules('username', 'Username', 'required|trim', [
             'required' => 'Username Harus Diisi!!',
