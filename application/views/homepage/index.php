@@ -3,11 +3,11 @@
 			<div class="container" data-aos="zoom-out" data-aos-delay="100">
 				<div class="row">
 					<div class="col-xl-6">
-						<h1>Bettter digital experience with Presento</h1>
+						<h1>Kamu Sedang Bingung Pesan Catering Di Daerah Yogyakarta Dimana?</h1>
 						<h2>
-							We are team of talented designers making websites with Bootstrap
+							Pesan Saja Di Tempat Kami Klik Paket Makanan Untuk Melihat Menu-Menu Yang Tersedia
 						</h2>
-						<a href="#about" class="btn-get-started scrollto">Get Started</a>
+						<a href="<?= base_url('paket-makanan'); ?>" class="btn-get-started scrollto">Paket Makan</a>
 					</div>
 				</div>
 			</div>
@@ -84,139 +84,59 @@
 						<div class="col-lg-12 d-flex justify-content-center">
 							<ul id="portfolio-flters">
 								<li data-filter="*" class="filter-active">All</li>
-								<li data-filter=".filter-pernikahan">Pernikahan</li>
-								<li data-filter=".filter-kotak">Nasi Kotak</li>
+								<li data-filter=".filter-prasmanan">Prasmanan</li>
+								<li data-filter=".filter-box">Nasi Kotak</li>
 								<li data-filter=".filter-tumpeng">Nasi Tumpeng</li>
 							</ul>
 						</div>
 					</div>
 
 					<div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-						<div class="col-lg-4 col-md-6 portfolio-item filter-pernikahan">
-							<div class="portfolio-wrap">
-								<img src="https://indonesiainside.id/wp-content/uploads/2019/07/IMG-20190705-WA0004-750x375.jpg" class="img-fluid" alt="" />
-								<div class="portfolio-info">
-									<h4>App 1</h4>
-									<p>App</p>
-									<div class="portfolio-links">
-										<a href="https://indonesiainside.id/wp-content/uploads/2019/07/IMG-20190705-WA0004-750x375.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-										<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+						<?php foreach ($prasmanan as $p) : ?>
+							<div class="col-lg-4 col-md-6 portfolio-item filter-prasmanan">
+								<div class="portfolio-wrap">
+									<img src="<?= base_url('assets/img/upload/') . $p['gambar_menu']; ?>" class="img-fluid" alt="" />
+									<div class="portfolio-info">
+										<h4><?= $p['nama_menu']; ?></h4>
+										<div class="portfolio-links">
+											<a href="<?= base_url('assets/img/upload/') . $p['gambar_menu']; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox" title="<?= $p['deskripsi_menu']; ?>"><i class="bx bx-plus"></i></a>
+											<a href="<?= base_url('detail-paket/') . $p['id_menu']; ?>" title="More Details"><i class="bx bx-link"></i></a>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
+						<?php endforeach ?>
 
-						<div class="col-lg-4 col-md-6 portfolio-item filter-tumpeng">
-							<div class="portfolio-wrap">
-								<img src="https://cdn1-production-images-kly.akamaized.net/NXLtZ_MhzxMjl3-y91G3lkkfjtE=/640x480/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3537989/original/010072900_1628742436-008753900_1547055502-Nasi_Kuning.jpg" class="img-fluid" alt="" />
-								<div class="portfolio-info">
-									<h4>Web 3</h4>
-									<p>Web</p>
-									<div class="portfolio-links">
-										<a href="https://cdn1-production-images-kly.akamaized.net/NXLtZ_MhzxMjl3-y91G3lkkfjtE=/640x480/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3537989/original/010072900_1628742436-008753900_1547055502-Nasi_Kuning.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-										<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+						<?php foreach ($box as $b) : ?>
+							<div class="col-lg-4 col-md-6 portfolio-item filter-box">
+								<div class="portfolio-wrap">
+									<img src="<?= base_url('assets/img/upload/') . $b['gambar_menu']; ?>" class="img-fluid" alt="" />
+									<div class="portfolio-info">
+										<h4><?= $b['nama_menu']; ?></h4>
+										<div class="portfolio-links">
+											<a href="<?= base_url('assets/img/upload/') . $b['gambar_menu']; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox" title="<?= $b['deskripsi_menu']; ?>"><i class="bx bx-plus"></i></a>
+											<a href="<?= base_url('detail-paket/') . $b['id_menu']; ?>" title="More Details"><i class="bx bx-link"></i></a>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
+						<?php endforeach ?>
 
-						<div class="col-lg-4 col-md-6 portfolio-item filter-pernikahan">
-							<div class="portfolio-wrap">
-								<img src="https://images.tokopedia.net/img/cache/500-square/product-1/2019/9/20/3213069/3213069_1b4b3f99-9286-44ef-b04f-550466ad3fe4_1560_1560.jpg" class="img-fluid" alt="" />
-								<div class="portfolio-info">
-									<h4>App 2</h4>
-									<p>App</p>
-									<div class="portfolio-links">
-										<a href="https://images.tokopedia.net/img/cache/500-square/product-1/2019/9/20/3213069/3213069_1b4b3f99-9286-44ef-b04f-550466ad3fe4_1560_1560.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-										<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+						<?php foreach ($tumpeng as $b) : ?>
+							<div class="col-lg-4 col-md-6 portfolio-item filter-tumpeng">
+								<div class="portfolio-wrap">
+									<img src="<?= base_url('assets/img/upload/') . $b['gambar_menu']; ?>" class="img-fluid" alt="" />
+									<div class="portfolio-info">
+										<h4><?= $b['nama_menu']; ?></h4>
+										<div class="portfolio-links">
+											<a href="<?= base_url('assets/img/upload/') . $b['gambar_menu']; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox" title="<?= $b['deskripsi_menu']; ?>"><i class="bx bx-plus"></i></a>
+											<a href="<?= base_url('detail-paket/') . $b['id_menu']; ?>" title="More Details"><i class="bx bx-link"></i></a>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
+						<?php endforeach ?>
 
-						<div class="col-lg-4 col-md-6 portfolio-item filter-kotak">
-							<div class="portfolio-wrap">
-								<img src="./assets/img/kotak1.jpg" class="img-fluid" alt="" />
-								<div class="portfolio-info">
-									<h4>Card 2</h4>
-									<p>Card</p>
-									<div class="portfolio-links">
-										<a href="./assets/img/kotak1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-										<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 portfolio-item filter-tumpeng">
-							<div class="portfolio-wrap">
-								<img src="https://awsimages.detik.net.id/community/media/visual/2019/08/16/af2c1a6f-5cfc-49a3-bd1e-2810147981fa.jpeg?w=1080" class="img-fluid" alt="" />
-								<div class="portfolio-info">
-									<h4>Web 2</h4>
-									<p>Web</p>
-									<div class="portfolio-links">
-										<a href="https://awsimages.detik.net.id/community/media/visual/2019/08/16/af2c1a6f-5cfc-49a3-bd1e-2810147981fa.jpeg?w=1080" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-										<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 portfolio-item filter-pernikahan">
-							<div class="portfolio-wrap">
-								<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR795UUV_b_MAfST4eLfGvzAkNGEGjbB4wPow&usqp=CAU" class="img-fluid" alt="" />
-								<div class="portfolio-info">
-									<h4>App 3</h4>
-									<p>App</p>
-									<div class="portfolio-links">
-										<a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR795UUV_b_MAfST4eLfGvzAkNGEGjbB4wPow&usqp=CAU" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-										<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 portfolio-item filter-kotak">
-							<div class="portfolio-wrap">
-								<img src="./assets/img/kotak2.jpg" class="img-fluid" alt="" />
-								<div class="portfolio-info">
-									<h4>Card 1</h4>
-									<p>Card</p>
-									<div class="portfolio-links">
-										<a href="./assets/img/kotak2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-										<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 portfolio-item filter-kotak">
-							<div class="portfolio-wrap">
-								<img src="./assets/img/kotak3.jpg" class="img-fluid" alt="" />
-								<div class="portfolio-info">
-									<h4>Card 3</h4>
-									<p>Card</p>
-									<div class="portfolio-links">
-										<a href="./assets/img/kotak3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-										<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 portfolio-item filter-tumpeng">
-							<div class="portfolio-wrap">
-								<img src="https://apollo-singapore.akamaized.net/v1/files/dty5838swq333-ID/image;s=850x0" class="img-fluid" alt="" />
-								<div class="portfolio-info">
-									<h4>Web 3</h4>
-									<p>Web</p>
-									<div class="portfolio-links">
-										<a href="https://apollo-singapore.akamaized.net/v1/files/dty5838swq333-ID/image;s=850x0" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-										<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 			</section>

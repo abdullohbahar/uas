@@ -52,8 +52,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $route['default_controller'] = 'homepage';
 
 $route['paket-makanan'] = 'shop';
+$route['paket-makanan/prasmanan'] = 'shop/prasmanan';
+$route['paket-makanan/nasi-box'] = 'shop/box';
+$route['paket-makanan/tumpeng'] = 'shop/tumpeng';
 $route['pesan'] = 'shop/pesan';
 $route['detail-paket/(:num)'] = 'shop/detailPaket/$1';
+$route['sukses'] = 'cart';
+$route['pesanan'] = 'cart/pesananUser';
 
 $route['masuk'] = 'auth/login';
 $route['daftar'] = 'auth/signup';
@@ -66,6 +71,8 @@ $route['admin/dashboard'] = 'admin';
 $route['admin/data-menu'] = 'menu';
 $route['admin/data-pesanan'] = 'pesanan';
 $route['admin/data-pelanggan'] = 'pelanggan';
+$route['admin/data-admin'] = 'admin/dataAdmin';
+$route['admin/data-kasir'] = 'kasir';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

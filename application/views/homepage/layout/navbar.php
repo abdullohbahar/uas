@@ -17,8 +17,8 @@
                 <?php else : ?>
                     <li class="dropdown"><a href="#"><span><i class="fas fa-user"></i> <?= $this->session->userdata('username'); ?></span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="#"><span><i class="fas fa-shopping-cart"></i> Pesanan</span></a></li>
-                            <li><a href="#"><span><i class="fas fa-user"></i> Profile</span></a></li>
+                            <li><a href="<?= base_url('pesanan'); ?>"><span><i class="fas fa-shopping-cart"></i> Pesanan</span></a></li>
+                            <!-- <li><a href="#"><span><i class="fas fa-user"></i> Profile</span></a></li> -->
                             <li><a href="<?= base_url('logout'); ?>"><span><i class="fas fa-sign-out-alt"></i> Logout</span></a></li>
                         </ul>
                     </li>
