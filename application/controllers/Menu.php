@@ -30,11 +30,11 @@ class Menu extends CI_Controller
         );
 
         $this->form_validation->set_rules(
-            'deskripsi_menu',
-            'Deskripsi Menu',
+            'kategori_menu',
+            'Kategori Menu',
             'required',
             [
-                'required' => 'Deskripsi Menu harus diisi',
+                'required' => 'Kategori Menu harus diisi',
             ]
         );
 
@@ -66,6 +66,7 @@ class Menu extends CI_Controller
             $data = [
                 'nama_menu' => $this->input->post('nama', true),
                 'harga_menu' => $this->input->post('harga', true),
+                'kategori_menu' => $this->input->post('kategori_menu', true),
                 'deskripsi_menu' => $this->input->post('deskripsi_menu', true),
                 'gambar_menu' => $gambar
             ];
@@ -142,6 +143,7 @@ class Menu extends CI_Controller
             $data = [
                 'nama_menu' => $this->input->post('nama', true),
                 'harga_menu' => $this->input->post('harga', true),
+                'kategori_menu' => $this->input->post('kategori_menu', true),
                 'deskripsi_menu' => $this->input->post('deskripsi_menu', true)
             ];
 

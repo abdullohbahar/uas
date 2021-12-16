@@ -11,8 +11,18 @@
             <ul>
                 <li><a class="nav-link <?= $title == 'Home' ? 'active' : ''; ?>" href="<?= base_url(); ?>">Home</a></li>
                 <li><a class="nav-link <?= $title == 'Paket Makanan' ? 'active' : ''; ?>" href="<?= base_url('paket-makanan'); ?>">Paket Makanan</a></li>
-                <li><a class="nav-link <?= $title == 'Login' ? 'active' : ''; ?>" href="<?= base_url('masuk'); ?>">Masuk</a></li>
-                <li><a class="nav-link <?= $title == 'Signup' ? 'active' : ''; ?>" href="<?= base_url('daftar'); ?>">Buat Akun</a></li>
+                <?php if ($this->session->userdata('username') == NULL) : ?>
+                    <li><a class="nav-link <?= $title == 'Login' ? 'active' : ''; ?>" href="<?= base_url('masuk'); ?>">Masuk</a></li>
+                    <li><a class="nav-link <?= $title == 'Signup' ? 'active' : ''; ?>" href="<?= base_url('daftar'); ?>">Buat Akun</a></li>
+                <?php else : ?>
+                    <li class="dropdown"><a href="#"><span><i class="fas fa-user"></i> <?= $this->session->userdata('username'); ?></span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="#"><span><i class="fas fa-shopping-cart"></i> Pesanan</span></a></li>
+                            <li><a href="#"><span><i class="fas fa-user"></i> Profile</span></a></li>
+                            <li><a href="<?= base_url('logout'); ?>"><span><i class="fas fa-sign-out-alt"></i> Logout</span></a></li>
+                        </ul>
+                    </li>
+                <?php endif ?>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>

@@ -45,6 +45,7 @@
                                         <th>Nama Menu</th>
                                         <th>Harga Menu</th>
                                         <th>Deskripsi Menu</th>
+                                        <th>Kategori</th>
                                         <th>Gambar Menu</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -59,6 +60,7 @@
                                             <td><?= $m['nama_menu']; ?></td>
                                             <td><?= $m['harga_menu']; ?></td>
                                             <td><?= $m['deskripsi_menu']; ?></td>
+                                            <td><?= $m['kategori_menu']; ?></td>
                                             <td><img class="w-100" src="<?= base_url('assets/img/upload/') . $m['gambar_menu']; ?>" alt=""></td>
                                             <td>
                                                 <div class="btn-group" role="group" aria-label="Basic example">
@@ -105,6 +107,14 @@
                             <label for="">Harga Menu</label>
                             <input type="number" name="harga" id="" class="form-control" required>
                         </div>
+                        <div class="col-6 mt-2">
+                            <label for="">Kategori Menu</label>
+                            <select name="kategori_menu" id="" class="form-control">
+                                <option value="prasmanan">Prasmanan</option>
+                                <option value="box">Nasi Box</option>
+                                <option value="tumpeng">Tumpeng</option>
+                            </select>
+                        </div>
                         <div class="col-12 mt-2">
                             <label for="">Deskripsi Menu</label>
                             <textarea name="deskripsi_menu" id="" class="form-control"></textarea>
@@ -148,6 +158,24 @@ foreach ($menu as $m) :
                             <div class="col-6 mt-2">
                                 <label for="">Harga Menu</label>
                                 <input type="number" name="harga" value="<?= $m['harga_menu']; ?>" id="" class="form-control">
+                            </div>
+                            <div class="col-6 mt-2">
+                                <label for="">Kategori Menu</label>
+                                <select name="kategori_menu" id="" class="form-control">
+                                    <?php if ($m['kategori_menu'] == 'PRASMANAN') : ?>
+                                        <option value="PRASMANAN" selected>Prasmanan</option>
+                                        <option value="NASI BOX">Nasi Box</option>
+                                        <option value="TUMPENG">Tumpeng</option>
+                                    <?php elseif ($m['kategori_menu'] == 'NASI BOX') : ?>
+                                        <option value="PRASMANAN">Prasmanan</option>
+                                        <option value="NASI BOX" selected>Nasi Box</option>
+                                        <option value="TUMPENG">Tumpeng</option>
+                                    <?php elseif ($m['kategori_menu'] == 'TUMPENG') : ?>
+                                        <option value="PRASMANAN">Prasmanan</option>
+                                        <option value="NASI BOX">Nasi Box</option>
+                                        <option value="TUMPENG" selected>Tumpeng</option>
+                                    <?php endif ?>
+                                </select>
                             </div>
                             <div class="col-12 mt-2">
                                 <label for="">Deskripsi Menu</label>

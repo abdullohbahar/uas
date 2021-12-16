@@ -5,9 +5,6 @@ class Auth extends CI_Controller
 {
     public function login()
     {
-        if ($this->session->userdata('email')) {
-            redirect('username');
-        }
 
         $this->form_validation->set_rules('username', 'Username', 'required|trim', [
             'required' => 'Username Harus Diisi!!',
@@ -41,13 +38,17 @@ class Auth extends CI_Controller
             // cek password
             if (password_verify($password, $user['password'])) {
                 $data = [
-                    'username' => $user['username']
+                    'id_pelanggan' => $user['id_pelanggan'],
+                    'nama_pelanggan' => $user['nama_pelanggan'],
+                    'username' => $user['username'],
+                    'email' => $user['email'],
+                    'alamat' => $user['alamat'],
+                    'nohp' => $user['nohp'],
                 ];
 
                 $this->session->set_userdata($data);
 
-                // redirect('user');
-                echo "login berhasil";
+                redirect('');
             } else {
                 $this->session->set_flashdata(
                     'pesan',
@@ -69,7 +70,12 @@ class Auth extends CI_Controller
 
 
         // Validation
-        $this->form_validation->set_rules('username', 'Username', 'required', ['required' => 'Username Belum diis!!']);
+        $this->form_validation->set_rules('nama_pelanggan', 'Nama Lengkap', 'required', [
+            'required' => 'Nama Lengkap Belum diisi!!'
+        ]);
+
+        $this->form_validation->set_rules('nohp', 'Nomor HP', 'required', ['required' => 'Nomor HP Belum diisi!!']);
+        $this->form_validation->set_rules('username', 'Username', 'required', ['required' => 'Username Belum diisi!!']);
 
         $this->form_validation->set_rules('email', 'Alamat Email', 'required|trim|valid_email|is_unique[pelanggan.email]', [
             'valid_email' => 'Email Tidak Benar!!', 'required' => 'Email Belum diisi!!', 'is_unique' => 'Email Sudah Terdaftar!'
@@ -89,6 +95,8 @@ class Auth extends CI_Controller
         } else {
             $email = $this->input->post('email', true);
             $data = [
+                'nama_pelanggan' => htmlspecialchars($this->input->post('nama_pelanggan', true)),
+                'nohp' => htmlspecialchars($this->input->post('nohp', true)),
                 'username' => htmlspecialchars($this->input->post('username', true)),
                 'email' => htmlspecialchars($email),
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
@@ -96,7 +104,7 @@ class Auth extends CI_Controller
             ];
 
             $this->ModelPelanggan->simpanData($data); //menggunakan model
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert"> Selamat!! akun member anda sudah dibuat. Silahkan Aktivasi Akun anda</div>');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert"> Selamat!! akun anda sudah dibuat. Silahkan Login</div>');
             redirect('masuk');
         }
     }
@@ -164,5 +172,15 @@ class Auth extends CI_Controller
 
         $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Anda telah Logout!!</div>');
         redirect('admin/login');
+    }
+
+    public function logoutPelanggan()
+    {
+        // $this->session->unset_userdata('username');
+
+        $this->session->sess_destroy();
+
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Anda telah Logout!!</div>');
+        redirect('masuk');
     }
 }

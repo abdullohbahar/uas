@@ -15,6 +15,16 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col-6">
+                    <label for="" class="mt-3">Nama Lengkap</label>
+                    <input type="text" name="nama_pelanggan" class="form-control" value="<?= set_value('nama_pelanggan'); ?>" id="" required />
+                    <?= form_error('nama_pelanggan', '<small class="text-danger pl-3">', '</small>'); ?>
+                  </div>
+                  <div class="col-6">
+                    <label for="" class="mt-3">Nomor HP</label>
+                    <input type="text" name="nohp" class="form-control" value="<?= set_value('nohp'); ?>" id="" required />
+                    <?= form_error('nohp', '<small class="text-danger pl-3">', '</small>'); ?>
+                  </div>
+                  <div class="col-6">
                     <label for="" class="mt-3">Username</label>
                     <input type="text" name="username" class="form-control" value="<?= set_value('username'); ?>" id="" required />
                     <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>

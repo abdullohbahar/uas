@@ -49,27 +49,41 @@
         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form action="" method="POST">
+      <form action="<?= base_url('pesan'); ?>" method="POST">
+        <input type="hidden" name="nama_menu" value="<?= $menu['nama_menu']; ?>">
+        <input type="hidden" name="harga" value="<?= $menu['harga_menu']; ?>">
+        <input type="hidden" name="kategori_menu" value="<?= $menu['kategori_menu']; ?>">
         <div class="modal-body">
           <div class="row">
-            <div class="col-6">
+            <div class="col-12">
               <input type="hidden" name="id_pesanan">
+              <label for=""><b>Nama Pemesan</b></label>
+              <input type="text" name="nama_pemesan" required class="form-control" id="" value="<?= $this->session->userdata('nama_pelanggan'); ?>">
+            </div>
+            <?php if ($menu['kategori_menu'] == 'NASI BOX') : ?>
+              <div class="col-6">
+                <input type="hidden" name="id_pesanan">
+                <label for=""><b>Jumlah</b></label>
+                <input type="text" name="jml_pesanan" required class="form-control" id="">
+              </div>
+            <?php endif ?>
+            <div class="col-6">
               <label for=""><b>No. Hp</b></label>
-              <input type="text" name="nohp" class="form-control" id="">
+              <input type="text" name="nohp" required class="form-control" id="" value="<?= $this->session->userdata('nohp'); ?>">
             </div>
             <div class="col-6">
               <label for=""><b>Tanggal Acara Dilaksanakan</b></label>
-              <input type="date" name="tanggal" class="form-control" id="">
+              <input type="date" name="tgl_acara" required class="form-control" id="">
             </div>
             <div class="col-12 mt-2">
               <label for=""><b>Alamat Acara Dilaksanakan</b></label>
-              <textarea name="alamat" id="" class="form-control"></textarea>
+              <textarea name="alamat" id="" required class="form-control"></textarea>
             </div>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-          <button type="button" class="btn btn-primary">Pesan</button>
+          <button type="submit" class="btn btn-primary">Pesan</button>
         </div>
       </form>
     </div>
