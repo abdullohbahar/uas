@@ -105,9 +105,6 @@ class Auth extends CI_Controller
 
     public function loginAdmin()
     {
-        if ($this->session->userdata('username')) {
-            redirect('user');
-        }
 
         $this->form_validation->set_rules('username', 'Username', 'required|trim', [
             'required' => 'Username Harus Diisi!!',

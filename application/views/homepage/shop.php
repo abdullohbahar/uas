@@ -45,7 +45,7 @@
                       <div class="card-body">
                         <h5 class="card-title"><?= $m['nama_menu']; ?></h5>
                         <p class="card-text"><?= $m['harga_menu']; ?></p>
-                        <a href="<?= base_url('shop/detailPaket/') . $m['id_menu']; ?>" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Pesan</a>
+                        <a href="<?= base_url('detail-paket/') . $m['id_menu']; ?>" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Pesan</a>
                       </div>
                     </div>
                   </div>
