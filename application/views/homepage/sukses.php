@@ -11,6 +11,7 @@
                             </h2>
 
                             <div class="entry-content">
+                                <h2><b>Harga Yang Harus Anda Bayarkan Sebanyak <?= "Rp. " . number_format($total_harga, 2, ',', '.') ?></b></h2>
                                 <p>
                                     Harap Untuk Melakukan Pembayaran Dengan Cara Transfer di :
                                 </p>

@@ -51,3 +51,32 @@
     <!-- End Blog Single Section -->
 </main>
 <!-- End #main -->
+
+<!-- Modal -->
+<?php foreach ($pesanan as $p) : ?>
+    <div class="modal fade" id="bayarModal<?= $p['id_pesanan']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="<?= base_url('cart'); ?>" method="POST">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <center>
+                                    <input type="hidden" value="<?= $p['total_harga']; ?>" name="total_harga">
+                                    <h2><b>Harga Yang Harus Anda Bayarkan Sebanyak <?= "Rp. " . number_format($p['total_harga'], 2, ',', '.') ?></b></h2>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary">Bayar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<?php endforeach ?>

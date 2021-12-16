@@ -11,7 +11,8 @@ class Cart extends CI_Controller
         }
 
         $data = [
-            'title' => 'Paket Makanan'
+            'title' => 'Paket Makanan',
+            'total_harga' => $this->input->post('total_harga')
         ];
 
         $this->load->view('homepage/layout/header', $data);
